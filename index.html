@@ -7,7 +7,7 @@
     <title>Ana Claudia Medeiros — Psicóloga clínica em Caxias do Sul</title>
     <meta
       name="description"
-      content="Psicóloga clínica em Caxias do Sul, com especialização em clínica psicanalítica. Atendimento para crianças e adultos, presencial e online. CRP 07/28640."
+      content="Psicóloga clínica em Caxias do Sul, com pós-graduação em clínica psicanalítica. Atendimento para crianças, adolescentes e adultos, presencial e online. CRP 07/28640."
     />
     <meta name="theme-color" content="#105733" />
 
@@ -24,7 +24,7 @@
     />
     <meta
       property="og:description"
-      content="Atendimento psicológico para crianças e adultos, presencial em Caxias do Sul e online para as demais regiões."
+      content="Atendimento psicológico para crianças, adolescentes e adultos, presencial em Caxias do Sul e online para as demais regiões."
     />
     <meta property="og:locale" content="pt_BR" />
 
@@ -59,13 +59,11 @@
 
     <header class="site-header">
       <div class="container site-header__inner">
-        <a class="site-header__logo" href="#inicio">
-          <img
-            src="assets/img/logo.png"
-            alt="Ana Claudia Medeiros, psicóloga clínica"
-            width="320"
-            height="134"
-          />
+        <a class="logo" href="#inicio">
+          <svg class="logo__mark" viewBox="0 0 44 44" aria-hidden="true">
+            <use href="#mark-petals" />
+          </svg>
+          <span class="logo__name">Ana Claudia Medeiros</span>
         </a>
 
         <a
@@ -73,9 +71,7 @@
           href="https://wa.me/5554991697043?text=Ol%C3%A1%2C%20Ana.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta."
         >
           <svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"
-            />
+            <use href="#icon-whatsapp" />
           </svg>
           Agendar
         </a>
@@ -87,22 +83,17 @@
       <section class="hero" id="inicio">
         <div class="container hero__inner">
           <div class="reveal">
-            <p class="overline">Psicologia clínica em Caxias do Sul</p>
-
             <h1>Ana Claudia Medeiros</h1>
             <p class="hero__role">Psicóloga clínica</p>
+            <p class="hero__crp">CRP 07/28640</p>
 
-            <div class="hero__credentials">
-              <span class="hero__specialty"
-                >Especialização em clínica psicanalítica</span
-              >
-              <span class="hero__crp">CRP 07/28640</span>
-            </div>
+            <p class="hero__lede">
+              Atendimento para crianças, adolescentes e adultos.
+            </p>
 
-            <p class="hero__description">
-              Atendimento psicológico para crianças e adultos, com escuta e
-              acompanhamento individualizado. Presencial em Caxias do Sul e
-              online para as demais regiões.
+            <p class="hero__note">
+              Atendimento presencial em Caxias do Sul e online para as demais
+              regiões.
             </p>
 
             <div class="hero__actions">
@@ -121,14 +112,36 @@
             </div>
           </div>
 
-          <div class="hero__portrait reveal">
-            <img
-              src="assets/img/ana-hero.jpg"
-              alt="Ana Claudia Medeiros, psicóloga clínica, em seu consultório"
-              width="1200"
-              height="1500"
-              fetchpriority="high"
-            />
+          <!-- Ilustração, não fotografia: a foto da Ana aparece só no "Sobre".
+               Decorativa, então fica fora da árvore de acessibilidade. -->
+          <div class="hero__figure reveal">
+            <svg
+              viewBox="0 0 480 600"
+              preserveAspectRatio="xMidYMid slice"
+              aria-hidden="true"
+            >
+              <path
+                class="shape-clay"
+                d="M400 -93.5 C437.3 -96.5 493.2 -69.9 521 -41 C548.7 -12 567.1 40.1 566.7 80 C566.3 119.9 546.4 174 518.7 198.7 C490.9 223.3 438.6 229 400 228.1 C361.4 227.2 317.7 217.9 286.8 193.2 C255.9 168.5 213 116 214.7 80 C216.4 44 266.1 5.9 297 -23 C327.9 -51.9 362.7 -90.6 400 -93.5 Z"
+              />
+              <path
+                class="shape-sage"
+                d="M70 291.6 C108 286.7 178.9 329.3 202.4 364.4 C226 399.5 223.4 463.9 211.3 502.3 C199.3 540.6 162.8 580.6 130 594.5 C97.1 608.5 52.1 600.1 14.3 585.7 C-23.6 571.3 -90.6 540.2 -97.3 508.2 C-103.9 476.2 -53.4 429.9 -25.6 393.8 C2.3 357.7 32 296.5 70 291.6 Z"
+              />
+              <path
+                class="shape-clay-soft"
+                d="M400 392.6 C431.7 393.6 471.8 421.7 491.1 447.3 C510.4 473 520.8 513.1 515.9 546.4 C510.9 579.8 489.3 634.2 461.4 647.5 C433.5 660.9 380.8 642.9 348.6 626.7 C316.4 610.4 276.1 581 268.2 550.1 C260.2 519.1 278.9 467.2 300.8 440.9 C322.8 414.7 368.3 391.5 400 392.6 Z"
+              />
+
+              <g class="stroke-line" stroke-width="2.6">
+                <use href="#mark-petals-lg" />
+              </g>
+              <path
+                class="stroke-line"
+                stroke-width="1.8"
+                d="M-20 480 C-1.7 472.5 53.3 435 90 435 C126.7 435 165 480.8 200 480 C235 479.2 271.7 430 300 430 C328.3 430 343.3 477.5 370 480 C396.7 482.5 438.3 445 460 445 C481.7 445 493.3 474.2 500 480"
+              />
+            </svg>
           </div>
         </div>
       </section>
@@ -151,101 +164,156 @@
 
             <p>
               Sou psicóloga clínica em Caxias do Sul, com pós-graduação em
-              clínica psicanalítica. Atendo crianças e adultos, e também conduzo
-              processos de orientação profissional e de carreira.
+              clínica psicanalítica. Atendo crianças, adolescentes e adultos,
+              além de realizar processos de orientação profissional e de
+              carreira.
+            </p>
+
+            <h3>Meu jeito de trabalhar</h3>
+
+            <p>
+              Acredito que cada pessoa chega à terapia com uma história única e
+              que o processo precisa acompanhar essa singularidade.
             </p>
 
             <p>
-              Meu trabalho é orientado pela escuta e pelo acolhimento,
-              respeitando o tempo e a história de cada pessoa. Cada atendimento é
-              conduzido de forma individualizada, em um espaço reservado, ético e
-              sigiloso.
+              Por isso, não trabalho com respostas prontas ou caminhos
+              previamente definidos. A escuta vai sendo construída a partir
+              daquilo que cada pessoa traz para o espaço terapêutico.
             </p>
 
-            <blockquote class="about__quote">
-              O cuidado começa por ouvir, antes de qualquer resposta.
-            </blockquote>
+            <p>
+              Busco oferecer uma clínica próxima, humana e responsável, mantendo
+              o cuidado técnico e ético que a profissão exige.
+            </p>
 
             <p>
-              <a
-                class="button button--secondary"
-                href="https://wa.me/5554991697043?text=Ol%C3%A1%2C%20Ana.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta."
-              >
-                <svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <use href="#icon-whatsapp" />
-                </svg>
-                Agendar pelo WhatsApp
-              </a>
+              Para mim, estar em terapia é também poder encontrar um espaço onde
+              seja possível pensar sobre si, questionar algumas certezas,
+              compreender experiências e construir novos sentidos.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- ======================== ESPECIALIDADES ====================== -->
-      <section class="section section--tinted" id="especialidades">
-        <div class="container">
-          <div class="section__head reveal">
-            <h2>Especialidades</h2>
+      <!-- ====================== PSICOTERAPIA ========================== -->
+      <section class="section section--tinted" id="psicoterapia">
+        <div class="container topic">
+          <div class="topic__body reveal">
+            <p class="overline">Psicoterapia individual</p>
+            <h2>Um espaço para você</h2>
+
             <p>
-              Três frentes de trabalho, todas conduzidas de forma individualizada
-              e sigilosa.
+              A psicoterapia pode ser um espaço para desacelerar, falar sobre o
+              que está acontecendo e olhar para si com mais atenção.
+            </p>
+
+            <p>
+              Aqui, você encontra uma escuta cuidadosa e individualizada, em um
+              ambiente onde suas experiências podem ser acolhidas sem
+              julgamentos e onde cada processo é construído respeitando a sua
+              história e o seu tempo.
+            </p>
+
+            <p>
+              Nem sempre chegamos à terapia sabendo exatamente o que queremos
+              compreender. Às vezes, existe apenas a sensação de que algo não
+              está bem.
+            </p>
+
+            <p>
+              É a partir da fala, da escuta e da construção desse espaço que
+              podemos começar a olhar para aquilo que está sendo vivido e
+              encontrar novas formas de compreendê-lo.
             </p>
           </div>
 
-          <div class="card-grid">
-            <article class="card reveal">
-              <span class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-              </span>
-              <h3>Psicoterapia individual</h3>
-              <p>
-                Atendimento psicológico individualizado para crianças e adultos,
-                considerando as necessidades e particularidades de cada pessoa.
-              </p>
-            </article>
+          <div class="topic__figure reveal">
+            <svg viewBox="0 0 480 360" aria-hidden="true">
+              <path
+                class="shape-sage"
+                d="M250 55.4 C281.9 54.7 328.8 84.2 348.8 109.1 C368.8 134 376 173.1 370.1 204.7 C364.2 236.3 341.4 288.1 313.5 298.7 C285.6 309.2 231.1 284 203 267.9 C174.8 251.7 152.1 227.4 144.5 201.7 C136.9 175.9 139.8 137.9 157.4 113.5 C175 89.2 218.1 56.2 250 55.4 Z"
+              />
+              <g
+                class="stroke-line"
+                stroke-width="2.6"
+                stroke-linecap="round"
+              >
+                <path d="M205 110 C150 155 150 215 205 260" />
+                <path d="M295 110 C350 155 350 215 295 260" />
+              </g>
+              <g class="stroke-line" stroke-width="2" stroke-linecap="round">
+                <path d="M222 143 C188 172 188 200 222 229" />
+                <path d="M278 143 C312 172 312 200 278 229" />
+              </g>
+              <path
+                class="stroke-line"
+                stroke-width="1.8"
+                d="M0 320 C11.7 313.3 45 279.2 70 280 C95 280.8 121.7 326.7 150 325 C178.3 323.3 210 270 240 270 C270 270 301.7 324.2 330 325 C358.3 325.8 385 276.7 410 275 C435 273.3 468.3 308.3 480 315"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
 
-            <article class="card reveal">
-              <span class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" />
-                </svg>
-              </span>
-              <h3>Carreira e orientação</h3>
-              <p>
-                Avaliação profissional e de carreira por meio de testes
-                psicológicos, apoiando a tomada de decisão sobre o futuro.
-              </p>
-            </article>
+      <!-- ======================== ORIENTAÇÃO ========================== -->
+      <section class="section" id="orientacao">
+        <div class="container topic topic--reverse">
+          <div class="topic__body reveal">
+            <h2>Orientação profissional e de carreira</h2>
 
-            <article class="card reveal">
-              <span class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <rect x="8" y="2" width="8" height="4" rx="1" />
-                  <path
-                    d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
-                  />
-                  <path d="m9 14 2 2 4-4" />
-                </svg>
-              </span>
-              <h3>Avaliação psicológica</h3>
-              <p>
-                Processos avaliativos para diagnóstico, concursos ou
-                procedimentos cirúrgicos, com rigor técnico e sensibilidade
-                clínica.
-              </p>
-            </article>
+            <p>Escolher ou repensar um caminho profissional nem sempre é simples.</p>
+
+            <p>
+              A orientação profissional é um espaço para olhar com mais atenção
+              para suas possibilidades, interesses, habilidades e expectativas,
+              especialmente em momentos de escolha, mudança ou dúvida em relação
+              à vida profissional.
+            </p>
+
+            <p>
+              O processo pode ser realizado tanto por quem está escolhendo uma
+              profissão quanto por quem deseja repensar sua trajetória, fazer
+              uma transição de carreira ou compreender melhor os caminhos
+              possíveis para o futuro.
+            </p>
+
+            <p>
+              Mais do que encontrar uma resposta pronta, a proposta é oferecer
+              um espaço de reflexão que auxilie na construção de escolhas mais
+              conscientes e coerentes com a sua história e com o momento que
+              você está vivendo.
+            </p>
+          </div>
+
+          <div class="topic__figure reveal">
+            <svg viewBox="0 0 480 360" aria-hidden="true">
+              <path
+                class="shape-clay"
+                d="M250 71.8 C283.5 73 324.1 89.1 345.4 111.6 C366.7 134 383.7 176.2 377.8 206.3 C371.9 236.3 339 281.6 309.9 291.9 C280.7 302.1 236.9 281.5 203 267.8 C169.2 254.1 116.6 236.7 106.8 209.4 C97 182.2 120.6 127.2 144.5 104.3 C168.4 81.3 216.5 70.6 250 71.8 Z"
+              />
+              <g
+                class="stroke-line"
+                stroke-width="2.6"
+                stroke-linecap="round"
+              >
+                <path d="M240 272 L240 205" />
+                <path d="M240 205 C240 160 205 140 148 118" />
+                <path d="M240 205 C240 160 275 140 332 118" />
+              </g>
+              <circle class="fill-line" cx="240" cy="205" r="5.5" />
+              <path
+                class="stroke-line"
+                stroke-width="1.8"
+                d="M0 320 C11.7 313.3 45 279.2 70 280 C95 280.8 121.7 326.7 150 325 C178.3 323.3 210 270 240 270 C270 270 301.7 324.2 330 325 C358.3 325.8 385 276.7 410 275 C435 273.3 468.3 308.3 480 315"
+              />
+            </svg>
           </div>
         </div>
       </section>
 
       <!-- ========================= ATENDIMENTO ======================== -->
-      <section class="section" id="atendimento">
+      <section class="section section--tinted" id="atendimento">
         <div class="container">
           <div class="section__head reveal">
             <h2>Como acontece o atendimento</h2>
@@ -270,7 +338,7 @@
                 <h3>Atendimento presencial</h3>
                 <p>
                   No consultório em Caxias do Sul, em um ambiente reservado e
-                  acolhedor para crianças e adultos.
+                  acolhedor para crianças, adolescentes e adultos.
                 </p>
                 <a
                   class="button button--primary"
@@ -315,11 +383,11 @@
         </div>
       </section>
 
-      <!-- ========================= LOCALIZAÇÃO ======================== -->
-      <section class="section section--tinted" id="localizacao">
-        <div class="container location__inner">
-          <div class="reveal">
-            <h2>Onde fica o consultório</h2>
+      <!-- ========================== ENDEREÇO ========================== -->
+      <section class="section" id="endereco">
+        <div class="container">
+          <div class="location reveal">
+            <h2>Endereço</h2>
 
             <address class="location__address">
               Rua La Salle, 785 — sala 502
@@ -330,18 +398,8 @@
               class="button button--secondary"
               href="https://www.google.com/maps/place/Psic%C3%B3loga+Cl%C3%ADnica+-+Ana+Claudia+Medeiros/@-29.1678821,-51.1913129,17z/data=!4m6!3m5!1s0x951ea37d7d91caa1:0x30c0172242718324!8m2!3d-29.1678821!4d-51.1913129"
             >
-              Abrir no Google Maps
+              Ver o consultório no Google Maps
             </a>
-          </div>
-
-          <div class="location__map reveal">
-            <img
-              src="assets/img/mapa.png"
-              alt="Mapa mostrando a localização do consultório na Rua La Salle, 785, em Caxias do Sul"
-              width="1352"
-              height="837"
-              loading="lazy"
-            />
           </div>
         </div>
       </section>
@@ -349,7 +407,7 @@
       <!-- ========================= CHAMADA FINAL ====================== -->
       <section class="section closing">
         <div class="container reveal">
-          <h2>Inicie sua jornada</h2>
+          <h2>Vamos conversar</h2>
           <p>
             O primeiro contato é simples e sem compromisso. Me escreva quando
             quiser, e conversamos sobre como começar.
@@ -374,13 +432,38 @@
       </div>
     </footer>
 
-    <!-- Definição única do glifo do WhatsApp, referenciada por <use>. -->
+    <!-- Definições reutilizadas por <use>: o glifo do WhatsApp e a marca de
+         quatro laços, nos dois tamanhos em que ela aparece. -->
     <svg width="0" height="0" aria-hidden="true" style="position: absolute">
       <symbol id="icon-whatsapp" viewBox="0 0 24 24">
         <path
           d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"
         />
       </symbol>
+
+      <!-- Marca: quatro laços abertos partindo de um mesmo ponto. Substitui a
+           folha do logo antigo. Geometria gerada por rotação de uma pétala. -->
+      <g id="mark-petals">
+        <path d="M24 35 C14.3 36.7 3.6 26.8 3.2 18.7 C11.1 17.2 23.3 25.2 24 35 Z" />
+        <path d="M24 35 C14.7 31 8.2 15.3 10.5 7.3 C18.2 10.4 26.6 25.2 24 35 Z" />
+        <path d="M24 35 C17.6 28.1 18.1 12.5 23 6.6 C28.4 12.1 29.9 27.7 24 35 Z" />
+        <path d="M24 35 C19 26.8 24.7 14.8 32.2 12.4 C36.4 19.1 33.1 31.9 24 35 Z" />
+      </g>
+
+      <g id="mark-petals-lg">
+        <path
+          d="M258 358 C196.5 368.5 128.3 305.7 125.6 254.6 C175.9 244.8 253.3 295.7 258 358 Z"
+        />
+        <path
+          d="M258 358 C199 332.3 157.8 232.4 172.1 181.8 C220.7 201.7 274.1 295.6 258 358 Z"
+        />
+        <path
+          d="M258 358 C218 314.4 220.8 215.2 251.7 178.1 C285.2 213 294.9 311.7 258 358 Z"
+        />
+        <path
+          d="M258 358 C226.5 306.1 262.4 230.2 310 215.2 C336.8 257.3 315.4 338.5 258 358 Z"
+        />
+      </g>
     </svg>
 
     <!-- Dados estruturados: ajudam o Google a ligar o site à ficha do Maps. -->
@@ -389,7 +472,7 @@
         "@context": "https://schema.org",
         "@type": "Psychologist",
         "name": "Ana Claudia Medeiros — Psicóloga Clínica",
-        "description": "Psicóloga clínica em Caxias do Sul, com especialização em clínica psicanalítica. Atendimento para crianças e adultos, presencial e online.",
+        "description": "Psicóloga clínica em Caxias do Sul, com pós-graduação em clínica psicanalítica. Atendimento para crianças, adolescentes e adultos, presencial e online.",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Rua La Salle, 785, sala 502",
@@ -406,8 +489,7 @@
         "areaServed": "Caxias do Sul e atendimento online em todo o Brasil",
         "availableService": [
           { "@type": "Service", "name": "Psicoterapia individual" },
-          { "@type": "Service", "name": "Orientação profissional e de carreira" },
-          { "@type": "Service", "name": "Avaliação psicológica" }
+          { "@type": "Service", "name": "Orientação profissional e de carreira" }
         ]
       }
     </script>

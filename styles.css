@@ -1,9 +1,9 @@
 /* =========================================================================
    Ana Claudia Medeiros — Psicóloga Clínica
-   Rampas geradas em OKLCH (neutro quente H75, acento verde da marca H155.6)
-   e escritas em hex: o hex tem suporte universal, e a rampa continua
-   perceptualmente uniforme porque a matemática foi feita em OKLCH.
-   Todo par de contraste usado abaixo foi medido em APCA e WCAG 2 AA.
+   Rampas geradas em OKLCH (neutro quente H75, verde da marca H155.6 e a
+   argila H50 das ilustrações) e escritas em hex: o hex tem suporte universal,
+   e a rampa continua perceptualmente uniforme porque a matemática foi feita
+   em OKLCH. Todo par de contraste com texto foi medido em APCA e WCAG 2 AA.
    ========================================================================= */
 
 /* ---------- 1. Fontes (auto-hospedadas: nenhuma requisição a terceiros) ---- */
@@ -81,6 +81,14 @@
   --a-11: #296140;  /* texto de acento                      */
   --a-12: #0e2e1c;  /* texto de acento alto contraste       */
 
+  /* Argila (OKLCH H 50) — a terceira cor das referências que a Ana mandou.
+     Só as ilustrações consomem estes passos; nenhum texto, nenhum controle.
+     Os dois claros repetem a luminosidade de --a-3 e --a-5, então as formas
+     verdes e as de argila pesam igual na composição. */
+  --c-3: #fae9e0;   /* forma clara      — L 0.944, igual a --a-3 */
+  --c-5: #f4d2c0;   /* forma            — L 0.888, igual a --a-5 */
+  --c-9: #9c6e54;   /* traço            — L 0.580                */
+
   /* Semânticos — a única camada que os componentes leem. */
   --color-bg: var(--n-1);
   --color-bg-subtle: var(--n-2);
@@ -95,8 +103,15 @@
   --color-accent-solid-hover: var(--a-10);
   --color-accent-text: var(--a-11);
   --color-accent-heading: var(--a-12);
-  --color-accent-bg: var(--a-3);
   --color-focus: var(--a-9);
+
+  /* Ilustração: papéis decorativos, sem obrigação de contraste porque nada
+     aqui carrega texto nem estado. */
+  --color-illustration-bg: var(--a-2);
+  --color-illustration-sage: var(--a-4);
+  --color-illustration-clay: var(--c-5);
+  --color-illustration-clay-soft: var(--c-3);
+  --color-illustration-line: var(--c-9);
 
   /* Escala tipográfica por papel: cada papel é uma decisão, não três. */
   --text-display: clamp(2.75rem, 1.9rem + 3.6vw, 4.75rem);
@@ -257,17 +272,6 @@ a {
   padding-inline: var(--layout-margin);
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
-}
 
 .skip-link {
   position: absolute;
@@ -306,12 +310,6 @@ a {
   block-size: 1px;
   background-color: var(--color-border);
   flex: none;
-}
-
-.lede {
-  font-size: var(--text-body-lg);
-  color: var(--color-text-secondary);
-  max-width: var(--measure);
 }
 
 .section {
@@ -419,16 +417,57 @@ a {
   min-block-size: 4.5rem;
 }
 
-.site-header__logo {
+/* O logo é marca + nome, os dois vetoriais: a marca é um <use> do símbolo
+   e o nome é texto de verdade, na mesma serifada dos títulos. Nítido em
+   qualquer tamanho, e o nome fica selecionável e traduzível. */
+.logo {
   display: inline-flex;
   align-items: center;
+  gap: var(--space-3);
+  /* A marca é desenhada a 36px, mas o alvo de toque tem os 44px mínimos —
+     em tela estreita o nome some e sobra só ela. */
+  min-block-size: 2.75rem;
+  min-inline-size: 2.75rem;
+  color: var(--color-accent-heading);
+  text-decoration: none;
   border-radius: var(--radius-sm);
 }
 
-.site-header__logo img {
+.logo__mark {
+  inline-size: 2.25rem;
   block-size: 2.25rem;
-  inline-size: auto;
-  outline: none; /* marca gráfica, não fotografia */
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  /* O nome ao lado é 600, e ícone ao lado de semibold pede traço de 2px:
+     2.4 no viewBox de 44, desenhado a 36px, sai em ~1.96px na tela. */
+  stroke-width: 2.4;
+  stroke-linejoin: round;
+}
+
+.logo__name {
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg);
+  font-weight: 600;
+  line-height: var(--leading-title);
+  letter-spacing: -0.01em;
+}
+
+/* Abaixo de ~26rem o nome e o botão brigam pela linha, então só a marca
+   fica visível. O nome continua no acessível: sem ele, o link do logo
+   seria um <a> sem nome nenhum, já que a marca é decorativa. */
+@media (max-width: 26rem) {
+  .logo__name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
 }
 
 /* ---------- 7. Hero -------------------------------------------------------- */
@@ -464,29 +503,27 @@ a {
   margin-block-start: var(--space-2);
 }
 
-.hero__credentials {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: var(--space-2) var(--space-4);
-  margin-block-start: var(--space-5);
-  padding-block-start: var(--space-5);
-  border-block-start: 1px solid var(--color-border-subtle);
-}
-
-.hero__specialty {
-  font-weight: 500;
-  color: var(--color-text);
-}
-
 .hero__crp {
+  margin-block-start: var(--space-2);
   font-size: var(--text-caption);
   color: var(--color-text-secondary);
   font-variant-numeric: tabular-nums;
 }
 
-.hero__description {
+/* A linha que a Ana pediu maior. É o que a pessoa precisa ler para saber
+   se o atendimento é para ela, então ganha corpo e a cor de texto cheia. */
+.hero__lede {
   margin-block-start: var(--space-5);
+  padding-block-start: var(--space-5);
+  border-block-start: 1px solid var(--color-border-subtle);
+  max-width: var(--measure);
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  line-height: var(--leading-heading);
+  text-wrap: balance;
+}
+
+.hero__note {
+  margin-block-start: var(--space-3);
   max-width: var(--measure);
   color: var(--color-text-secondary);
 }
@@ -498,17 +535,31 @@ a {
   gap: var(--space-3);
 }
 
-.hero__portrait {
+/* Ilustração, não foto: sem sombra e sem contorno, porque não é uma janela
+   para outro lugar — é uma superfície da própria página. Em tela estreita
+   ela deita para não empurrar o botão para fora do primeiro quadro, e tem
+   teto de altura: sem ele, a 200% de zoom ela renderiza 592x395 e fica
+   maior que todo o texto que acompanha. O SVG corta (`slice`) em vez de
+   deixar faixa vazia, então o corte é o comportamento certo aqui. */
+.hero__figure {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  aspect-ratio: 4 / 5;
+  background-color: var(--color-illustration-bg);
+  aspect-ratio: 3 / 2;
+  max-block-size: 18rem;
 }
 
-.hero__portrait img {
+@media (min-width: 58rem) {
+  .hero__figure {
+    aspect-ratio: 4 / 5;
+    max-block-size: none;
+  }
+}
+
+.hero__figure svg {
+  display: block;
   inline-size: 100%;
   block-size: 100%;
-  object-fit: cover;
 }
 
 /* ---------- 8. Sobre ------------------------------------------------------- */
@@ -547,59 +598,101 @@ a {
   max-width: var(--measure);
 }
 
-.about__quote {
-  margin: 0;
-  padding-inline-start: var(--space-5);
-  border-inline-start: 2px solid var(--a-7);
-  font-family: var(--font-display);
-  font-size: var(--text-body-lg);
-  font-style: italic;
-  color: var(--color-accent-heading);
+/* O subtítulo abre um assunto novo dentro da seção, então o vão acima dele
+   é maior que o vão entre parágrafos — é isso que marca o corte. */
+.about__body h3 {
+  margin-block-start: var(--space-7);
 }
 
-/* ---------- 9. Grades de cards --------------------------------------------- */
+/* ---------- 9. Seções de assunto (texto + ilustração) ---------------------- */
 
-/* auto-fit + minmax adapta pelo espaço disponível, sem breakpoint nenhum. */
-.card-grid {
+.topic {
   display: grid;
-  gap: var(--space-5);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: clamp(var(--space-6), 4vw, var(--space-8));
+  align-items: center;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-6);
-  background-color: var(--color-surface-raised);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+/* Quebra onde o texto para de caber na medida: abaixo disso a ilustração
+   ao lado espremeria a coluna de leitura. */
+@media (min-width: 56rem) {
+  .topic {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
+  }
+
+  /* Alterna o lado da ilustração entre uma seção e a seguinte. Trocar por
+     `order` moveria o texto para a coluna estreita junto: quem manda aqui
+     é a célula, então a troca é por coluna, e as colunas do grid seguem a
+     direção da escrita. */
+  .topic--reverse {
+    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  }
+
+  .topic--reverse .topic__figure {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .topic--reverse .topic__body {
+    grid-column: 2;
+    grid-row: 1;
+  }
 }
 
-.card p {
+.topic__body > * + * {
+  margin-block-start: var(--space-5);
+}
+
+.topic__body p {
   color: var(--color-text-secondary);
+  max-width: var(--measure);
 }
 
-.card__icon {
-  inline-size: 2.75rem;
-  block-size: 2.75rem;
-  display: grid;
-  place-items: center;
-  border-radius: var(--radius-md);
-  background-color: var(--color-accent-bg);
-  color: var(--color-accent-heading);
-  margin-block-end: var(--space-2);
+/* Empilhada, a ilustração para de crescer na largura em vez da altura: o
+   SVG desta seção enquadra por inteiro (`meet`), então cortar a caixa
+   deixaria faixa vazia — limitar a largura mantém a composição. */
+.topic__figure {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-illustration-bg);
+  aspect-ratio: 4 / 3;
+  max-inline-size: 26rem;
 }
 
-.card__icon svg {
-  inline-size: 1.375rem;
-  block-size: 1.375rem;
-  /* Traço de 1.5px acompanha o peso do texto ao lado (400–500). */
-  stroke: currentColor;
-  stroke-width: 1.5;
+@media (min-width: 56rem) {
+  .topic__figure {
+    max-inline-size: none;
+  }
+}
+
+.topic__figure svg {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* ---------- 9b. Ilustrações ------------------------------------------------ */
+
+.shape-sage {
+  fill: var(--color-illustration-sage);
+}
+
+.shape-clay {
+  fill: var(--color-illustration-clay);
+}
+
+.shape-clay-soft {
+  fill: var(--color-illustration-clay-soft);
+}
+
+.stroke-line {
   fill: none;
-  stroke-linecap: round;
+  stroke: var(--color-illustration-line);
   stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.fill-line {
+  fill: var(--color-illustration-line);
 }
 
 /* ---------- 10. Modalidades de atendimento --------------------------------- */
@@ -648,18 +741,13 @@ a {
   margin-block-start: var(--space-2);
 }
 
-/* ---------- 11. Localização ------------------------------------------------ */
+/* ---------- 11. Endereço --------------------------------------------------- */
 
-.location__inner {
-  display: grid;
-  gap: clamp(var(--space-6), 4vw, var(--space-8));
-  align-items: center;
-}
-
-@media (min-width: 52rem) {
-  .location__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-  }
+/* Uma coluna só: a Ana pediu endereço escrito e link, sem mapa. Um print
+   do Google Maps não é um mapa — não dá para arrastar, não traça rota, e
+   fica desatualizado sem ninguém perceber. O link faz as três coisas. */
+.location {
+  max-width: var(--measure);
 }
 
 .location__address {
@@ -672,19 +760,6 @@ a {
   display: block;
   color: var(--color-text-secondary);
   font-size: var(--text-body);
-}
-
-.location__map {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  aspect-ratio: 16 / 10;
-}
-
-.location__map img {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: cover;
 }
 
 /* ---------- 12. Chamada final ---------------------------------------------- */
