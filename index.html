@@ -17,7 +17,20 @@
          REMOVER esta linha no dia em que o site entrar de verdade. -->
     <meta name="robots" content="noindex, nofollow" />
 
+    <!-- ================== ENDEREÇO CANÔNICO DO SITE ==================
+         O domínio aparece em 8 lugares. Seis neste arquivo: canonical,
+         og:url, og:image e, nos dados estruturados lá embaixo, @id, url e
+         image. Mais um no sitemap.xml e um no robots.txt.
+         TROCAR OS OITO quando o domínio próprio entrar, senão o Google
+         continua sendo mandado para o github.io. O comando que confere os
+         oito está no README, e não aqui de propósito: escrito neste arquivo
+         ele contaria a si mesmo e a conferência nunca fecharia em zero.
+         ================================================================ -->
+    <link rel="canonical" href="https://frn-sz.github.io/ana-claudia-site/" />
+
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ana Claudia Medeiros" />
+    <meta property="og:url" content="https://frn-sz.github.io/ana-claudia-site/" />
     <meta
       property="og:title"
       content="Ana Claudia Medeiros — Psicóloga clínica em Caxias do Sul"
@@ -27,6 +40,20 @@
       content="Atendimento psicológico para crianças, adolescentes e adultos, presencial em Caxias do Sul e online para as demais regiões."
     />
     <meta property="og:locale" content="pt_BR" />
+
+    <!-- Sem imagem, o link colado no WhatsApp vira um card cinza de texto —
+         e o WhatsApp é o canal principal dela. -->
+    <meta
+      property="og:image"
+      content="https://frn-sz.github.io/ana-claudia-site/assets/img/og.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Ana Claudia Medeiros, psicóloga clínica, CRP 07/28640. Atendimento presencial em Caxias do Sul e online."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
 
@@ -48,9 +75,13 @@
     <link rel="stylesheet" href="styles.css" />
 
     <script>
-      // Marca que o JS rodou. As animações de entrada só existem sob esta
-      // classe, então se o script falhar nada fica invisível.
-      document.documentElement.classList.add('js');
+      // Autoriza as animações de entrada. A condição é a mesma que o
+      // observador lá embaixo exige: sem ela o CSS escondia o conteúdo para
+      // uma animação que nunca ia rodar, e a página inteira ficava em branco
+      // em navegadores sem IntersectionObserver (Safari 12.0 e anteriores).
+      if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js');
+      }
     </script>
   </head>
 
@@ -153,8 +184,8 @@
             <img
               src="assets/img/ana-sobre.jpg"
               alt="Retrato de Ana Claudia Medeiros"
-              width="1000"
-              height="1250"
+              width="1003"
+              height="1254"
               loading="lazy"
             />
           </div>
@@ -234,23 +265,17 @@
                 class="shape-sage"
                 d="M250 55.4 C281.9 54.7 328.8 84.2 348.8 109.1 C368.8 134 376 173.1 370.1 204.7 C364.2 236.3 341.4 288.1 313.5 298.7 C285.6 309.2 231.1 284 203 267.9 C174.8 251.7 152.1 227.4 144.5 201.7 C136.9 175.9 139.8 137.9 157.4 113.5 C175 89.2 218.1 56.2 250 55.4 Z"
               />
-              <g
-                class="stroke-line"
-                stroke-width="2.6"
-                stroke-linecap="round"
-              >
+              <g class="stroke-line" stroke-width="2.6">
                 <path d="M205 110 C150 155 150 215 205 260" />
                 <path d="M295 110 C350 155 350 215 295 260" />
               </g>
-              <g class="stroke-line" stroke-width="2" stroke-linecap="round">
+              <g class="stroke-line" stroke-width="2">
                 <path d="M222 143 C188 172 188 200 222 229" />
                 <path d="M278 143 C312 172 312 200 278 229" />
               </g>
-              <path
-                class="stroke-line"
-                stroke-width="1.8"
-                d="M0 320 C11.7 313.3 45 279.2 70 280 C95 280.8 121.7 326.7 150 325 C178.3 323.3 210 270 240 270 C270 270 301.7 324.2 330 325 C358.3 325.8 385 276.7 410 275 C435 273.3 468.3 308.3 480 315"
-              />
+              <g class="stroke-line" stroke-width="1.8">
+                <use href="#wave-baseline" />
+              </g>
             </svg>
           </div>
         </div>
@@ -292,21 +317,15 @@
                 class="shape-clay"
                 d="M250 71.8 C283.5 73 324.1 89.1 345.4 111.6 C366.7 134 383.7 176.2 377.8 206.3 C371.9 236.3 339 281.6 309.9 291.9 C280.7 302.1 236.9 281.5 203 267.8 C169.2 254.1 116.6 236.7 106.8 209.4 C97 182.2 120.6 127.2 144.5 104.3 C168.4 81.3 216.5 70.6 250 71.8 Z"
               />
-              <g
-                class="stroke-line"
-                stroke-width="2.6"
-                stroke-linecap="round"
-              >
+              <g class="stroke-line" stroke-width="2.6">
                 <path d="M240 272 L240 205" />
                 <path d="M240 205 C240 160 205 140 148 118" />
                 <path d="M240 205 C240 160 275 140 332 118" />
               </g>
               <circle class="fill-line" cx="240" cy="205" r="5.5" />
-              <path
-                class="stroke-line"
-                stroke-width="1.8"
-                d="M0 320 C11.7 313.3 45 279.2 70 280 C95 280.8 121.7 326.7 150 325 C178.3 323.3 210 270 240 270 C270 270 301.7 324.2 330 325 C358.3 325.8 385 276.7 410 275 C435 273.3 468.3 308.3 480 315"
-              />
+              <g class="stroke-line" stroke-width="1.8">
+                <use href="#wave-baseline" />
+              </g>
             </svg>
           </div>
         </div>
@@ -328,9 +347,9 @@
               <div class="mode__media">
                 <img
                   src="assets/img/presencial.jpg"
-                  alt="Sala de atendimento do consultório em Caxias do Sul"
-                  width="1200"
-                  height="900"
+                  alt="Sala de atendimento do consultório: divã, poltrona e janela com cortina clara"
+                  width="1600"
+                  height="1200"
                   loading="lazy"
                 />
               </div>
@@ -353,14 +372,27 @@
             </article>
 
             <article class="mode reveal">
-              <div class="mode__media">
-                <img
-                  src="assets/img/online.jpg"
-                  alt="Pessoa em atendimento psicológico por videochamada"
-                  width="1200"
-                  height="900"
-                  loading="lazy"
-                />
+              <!-- Ilustração irmã da seção "Um espaço para você": os mesmos
+                   arcos, só que mais afastados. Mesma escuta, outra distância.
+                   Decorativa, então fica fora da árvore de acessibilidade. -->
+              <div class="mode__media mode__media--illustration">
+                <svg viewBox="0 0 480 360" aria-hidden="true">
+                  <path
+                    class="shape-clay"
+                    d="M250 46.1 C285.1 49.3 319.3 87.1 341.9 114 C364.5 141 391.5 179.3 385.5 207.8 C379.6 236.4 336.6 275.1 306.2 285.1 C275.8 295.1 235 280.6 203.1 267.7 C171.1 254.8 126.6 236.6 114.7 207.8 C102.8 179 109 121.9 131.6 95 C154.1 68.1 214.9 43 250 46.1 Z"
+                  />
+                  <g class="stroke-line" stroke-width="2.6">
+                    <path d="M182 108 C118 152 118 218 182 262" />
+                    <path d="M318 108 C382 152 382 218 318 262" />
+                  </g>
+                  <g class="stroke-line" stroke-width="2">
+                    <path d="M205 140 C165 170 165 200 205 230" />
+                    <path d="M295 140 C335 170 335 200 295 230" />
+                  </g>
+                  <g class="stroke-line" stroke-width="1.8">
+                    <use href="#wave-baseline" />
+                  </g>
+                </svg>
               </div>
               <div class="mode__body">
                 <h3>Atendimento online</h3>
@@ -450,6 +482,13 @@
         <path d="M24 35 C19 26.8 24.7 14.8 32.2 12.4 C36.4 19.1 33.1 31.9 24 35 Z" />
       </g>
 
+      <!-- Linha d'água que fecha as três ilustrações de 480x360. Uma
+           definição só: as três precisam ser a mesma onda, não ondas
+           parecidas. A cor e a espessura vêm do grupo que a usa. -->
+      <g id="wave-baseline">
+        <path d="M0 320 C11.7 313.3 45 279.2 70 280 C95 280.8 121.7 326.7 150 325 C178.3 323.3 210 270 240 270 C270 270 301.7 324.2 330 325 C358.3 325.8 385 276.7 410 275 C435 273.3 468.3 308.3 480 315" />
+      </g>
+
       <g id="mark-petals-lg">
         <path
           d="M258 358 C196.5 368.5 128.3 305.7 125.6 254.6 C175.9 244.8 253.3 295.7 258 358 Z"
@@ -471,8 +510,19 @@
       {
         "@context": "https://schema.org",
         "@type": "Psychologist",
+        "@id": "https://frn-sz.github.io/ana-claudia-site/#psicologa",
         "name": "Ana Claudia Medeiros — Psicóloga Clínica",
+        "url": "https://frn-sz.github.io/ana-claudia-site/",
+        "image": "https://frn-sz.github.io/ana-claudia-site/assets/img/og.jpg",
+        "hasMap": "https://www.google.com/maps/place/Psic%C3%B3loga+Cl%C3%ADnica+-+Ana+Claudia+Medeiros/@-29.1678821,-51.1913129,17z/data=!4m6!3m5!1s0x951ea37d7d91caa1:0x30c0172242718324!8m2!3d-29.1678821!4d-51.1913129",
         "description": "Psicóloga clínica em Caxias do Sul, com pós-graduação em clínica psicanalítica. Atendimento para crianças, adolescentes e adultos, presencial e online.",
+        "knowsAbout": [
+          "Psicanálise",
+          "Psicoterapia infantil",
+          "Psicoterapia de adolescentes",
+          "Psicoterapia de adultos",
+          "Orientação profissional e de carreira"
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Rua La Salle, 785, sala 502",

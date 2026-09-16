@@ -1,4 +1,10 @@
-# Prévia em construção — não indexar.
-# Remover este arquivo quando o site entrar no ar.
+# PRÉVIA em construção — não indexar.
+# No dia do lançamento, trocar o bloco abaixo por:
+#   User-agent: *
+#   Allow: /
+# e remover a linha <meta name="robots" content="noindex, nofollow"> do
+# index.html. Uma coisa sem a outra não funciona.
 User-agent: *
 Disallow: /
+
+Sitemap: https://frn-sz.github.io/ana-claudia-site/sitemap.xml

@@ -9,16 +9,37 @@ aqui é exatamente o que vai para o ar.
 python3 -m http.server 4173
 ```
 
-## O que ainda é placeholder
+**Trocou uma imagem sem trocar o nome do arquivo?** Recarregue furando o cache
+(`Ctrl+Shift+R`). O `http.server` manda só `Last-Modified`, sem `Cache-Control`
+nem `ETag`, então o navegador aplica cache heurístico e nem chega a perguntar se
+o arquivo mudou — continua desenhando o que baixou antes. O servidor está certo;
+quem está desatualizado é a aba.
 
-| Arquivo | Substituir por | Observação |
-| --- | --- | --- |
-| `assets/img/ana-sobre.jpg` | Foto da Ana, mínimo 1000×1250 | A única foto dela no site: ela pediu foto só no "Sobre", e ilustração no topo |
-| `assets/img/presencial.jpg` | Foto real do consultório | 4:3, mínimo 1200×900. Ela já mandou uma (1600×1200), mas comprimida pelo WhatsApp |
-| `assets/img/online.jpg` | Imagem de atendimento online | 4:3, mínimo 1200×900 |
+## Imagens
 
-**Ao pedir as fotos:** enviar como *documento* no WhatsApp, não como foto — como
-foto o app recomprime para ~1600px e devolve o mesmo problema de qualidade.
+Não há mais placeholder: as duas fotos estão no lugar e o card de atendimento
+online é ilustração, não foto.
+
+| Onde | O que é |
+| --- | --- |
+| `assets/img/ana-sobre.jpg` | Retrato da Ana, 1003×1254, recorte 4:5 do quadrado que ela mandou |
+| `assets/img/presencial.jpg` | Consultório, 1600×1200, o 4:3 exato do card |
+| `assets/img/og.jpg` | Cartão de compartilhamento, 1200×630. Não aparece no site: é o que o WhatsApp desenha quando alguém cola o link |
+| Card "Atendimento online" | Ilustração inline, irmã da seção "Um espaço para você": os mesmos arcos, mais afastados |
+
+O `og.jpg` repete o primeiro quadro: marca, nome, "Psicóloga clínica", CRP e a
+linha de atendimento, com o retrato à direita. Ele é uma imagem chapada, então
+não se atualiza sozinho — **mudou o texto do topo, refaça o cartão**, senão o
+link compartilhado passa a anunciar uma versão do site que não existe mais.
+
+As duas fotos vieram do WhatsApp e chegaram por e-mail no mesmo estado: a do
+consultório é o mesmo arquivo, byte a byte (qualidade 50), e a dela é a mesma
+imagem 1254×1254 reembalada em PNG sem perda — não são os originais da câmera.
+Servem, mas se um dia aparecerem os arquivos originais valem a troca.
+
+**Ao pedir foto:** enviar como *documento* no WhatsApp, não como foto — como
+foto o app recomprime e devolve o mesmo problema de qualidade. Por e-mail,
+anexar o arquivo original, não o que já passou pelo WhatsApp.
 
 ## Decisões que não são gosto
 
@@ -82,14 +103,42 @@ Os textos das seções "Um espaço para você", "Meu jeito de trabalhar" e
 
 ## Antes de lançar de verdade
 
-O site está publicado como **prévia** e propositalmente fora do Google:
+O site está publicado como **prévia** e propositalmente fora do Google. Para
+lançar, os quatro passos abaixo são um pacote: fazer um sem o outro deixa o
+site inconsistente ou invisível.
 
-- `<meta name="robots" content="noindex, nofollow">` em `index.html`
-- `robots.txt` com `Disallow: /`
+1. **Abrir para o Google.** Remover `<meta name="robots" content="noindex,
+   nofollow">` do `index.html` **e** trocar o `Disallow: /` do `robots.txt`
+   por `Allow: /`. Um sem o outro não adianta.
+2. **Trocar o domínio nos 8 lugares.** Seis no `index.html` (canonical,
+   `og:url`, `og:image` e, no JSON-LD, `@id`, `url`, `image`), um no
+   `sitemap.xml` e um no `robots.txt`. Conferir com:
+   ```bash
+   grep -rn "frn-sz.github.io" index.html sitemap.xml robots.txt
+   ```
+   Tem que não achar nada depois da troca. O comando mora aqui, e não num
+   comentário dentro do `index.html`, porque lá ele se encontraria e a
+   conferência nunca fecharia. Criar também o arquivo `CNAME` com o
+   domínio e apontar o DNS (apex nos IPs do GitHub Pages, `www` por CNAME
+   para `frn-sz.github.io`).
+3. **Tirar o site do Wix do ar.** Ele está indexável: `robots.txt` liberado,
+   sem `noindex`, com canonical próprio. Se ficar no ar, passam a existir duas
+   páginas com o mesmo nome, telefone e endereço competindo entre si. A conta
+   é do dev que sumiu, mas o plano é da Ana — dá para despublicar por lá.
+4. **Registrar no Search Console** e enviar o `sitemap.xml`.
 
-Remover os dois no dia do lançamento. Enquanto o site do Wix estiver no ar,
-manter os dois evita que as duas versões concorram na busca e que um paciente
-caia na página com imagens de placeholder.
+## O que falta nos dados estruturados
+
+Deixei de fora o que eu não sabia — inventar dado em `schema.org` é pior que
+omitir, porque o Google cruza com a ficha do Maps e a divergência derruba a
+confiança nos dois. Perguntar para a Ana e preencher:
+
+| Campo | O que é |
+| --- | --- |
+| `openingHours` | Horário de atendimento |
+| `sameAs` | Instagram e qualquer outro perfil profissional |
+| `email` | E-mail de contato, se ela quiser publicar |
+| `priceRange` | Faixa de preço (opcional, `$$` já serve) |
 
 ## Publicar no GitHub Pages
 

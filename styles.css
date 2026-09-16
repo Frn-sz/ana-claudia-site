@@ -503,10 +503,15 @@ a {
   margin-block-start: var(--space-2);
 }
 
+/* O CRP estava em 13px na cor secundária: Lc 78,7. Na tabela do APCA, 13px
+   em peso 400 não é servido por cor nenhuma — nem preto puro chega ao Lc que
+   esse tamanho pede. Então o tamanho tinha que subir junto com a cor: 16px
+   em --color-text dá Lc 95,2, contra os Lc 90 que 16px/400 exige. É um
+   número que gente de verdade confere antes de marcar consulta. */
 .hero__crp {
   margin-block-start: var(--space-2);
-  font-size: var(--text-caption);
-  color: var(--color-text-secondary);
+  font-size: var(--text-body);
+  color: var(--color-text);
   font-variant-numeric: tabular-nums;
 }
 
@@ -576,11 +581,21 @@ a {
   }
 }
 
+/* Teto de altura enquanto empilhado: sem ele, a 768px o retrato renderiza
+   720x900 e a pessoa rola uma tela inteira de foto antes de chegar no texto.
+   O mesmo teto que o hero e as ilustrações já tinham. */
 .about__portrait {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
   aspect-ratio: 4 / 5;
+  max-block-size: 24rem;
+}
+
+@media (min-width: 52rem) {
+  .about__portrait {
+    max-block-size: none;
+  }
 }
 
 .about__portrait img {
@@ -716,11 +731,28 @@ a {
   aspect-ratio: 4 / 3;
 }
 
+/* A foto do consultório mantém o contorno de 1px do seletor global: é a
+   mesma profundidade que o retrato do "Sobre" tem, e sem ele as duas
+   fotografias da página ficariam com tratamentos diferentes. */
 .mode__media img {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
-  outline: none;
+}
+
+/* O card do online não tem foto: mostra a ilustração irmã da seção de
+   psicoterapia, sobre a mesma superfície clara das outras ilustrações. */
+.mode__media--illustration {
+  background-color: var(--color-illustration-bg);
+}
+
+/* O `block-size` é o que alinha os dois cards: sem ele o SVG se mede pelo
+   próprio conteúdo, a caixa da mídia fica 7px mais alta que a da foto ao
+   lado e a borda de baixo das duas desencontra. */
+.mode__media svg {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .mode__body {
