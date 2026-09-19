@@ -272,6 +272,19 @@ a {
   padding-inline: var(--layout-margin);
 }
 
+/* Some da tela e continua na árvore de acessibilidade: para títulos que
+   estruturam a página mas que o desenho dispensa. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 
 .skip-link {
   position: absolute;
@@ -318,16 +331,6 @@ a {
 
 .section--tinted {
   background-color: var(--color-bg-subtle);
-}
-
-.section__head {
-  max-width: var(--measure);
-  margin-block-end: var(--space-7);
-}
-
-.section__head p {
-  color: var(--color-text-secondary);
-  margin-block-start: var(--space-4);
 }
 
 /* ---------- 5. Botões ------------------------------------------------------ */
@@ -533,16 +536,9 @@ a {
   color: var(--color-text-secondary);
 }
 
-.hero__actions {
-  margin-block-start: var(--space-6);
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-}
-
 /* Ilustração, não foto: sem sombra e sem contorno, porque não é uma janela
    para outro lugar — é uma superfície da própria página. Em tela estreita
-   ela deita para não empurrar o botão para fora do primeiro quadro, e tem
+   ela deita para não empurrar o texto para fora do primeiro quadro, e tem
    teto de altura: sem ele, a 200% de zoom ela renderiza 592x395 e fica
    maior que todo o texto que acompanha. O SVG corta (`slice`) em vez de
    deixar faixa vazia, então o corte é o comportamento certo aqui. */
@@ -794,41 +790,7 @@ a {
   font-size: var(--text-body);
 }
 
-/* ---------- 12. Chamada final ---------------------------------------------- */
-
-.closing {
-  background-color: var(--color-accent-solid);
-  color: var(--color-text-on-accent);
-  text-align: center;
-}
-
-.closing h2 {
-  color: var(--color-text-on-accent);
-}
-
-.closing p {
-  color: var(--a-5);
-  margin-block: var(--space-4) var(--space-6);
-  margin-inline: auto;
-  max-width: 34rem;
-}
-
-.closing .button {
-  background-color: var(--color-surface-raised);
-  color: var(--color-accent-heading);
-}
-
-@media (hover: hover) {
-  .closing .button:hover {
-    background-color: var(--a-2);
-  }
-}
-
-.closing :focus-visible {
-  outline-color: #ffffff;
-}
-
-/* ---------- 13. Rodapé ----------------------------------------------------- */
+/* ---------- 12. Rodapé ----------------------------------------------------- */
 
 .site-footer {
   padding-block: var(--space-7);
@@ -849,7 +811,7 @@ a {
   margin: 0;
 }
 
-/* ---------- 14. Entrada suave (opcional, respeita reduced-motion) ---------- */
+/* ---------- 13. Entrada suave (opcional, respeita reduced-motion) ---------- */
 
 /* O conteúdo é visível por padrão. A classe .js — que só existe se o script
    rodou — é o que autoriza escondê-lo para animar. É o sentido oposto ao do

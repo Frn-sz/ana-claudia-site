@@ -101,6 +101,20 @@ Os textos das seções "Um espaço para você", "Meu jeito de trabalhar" e
 - "Onde fica o consultório" virou "Endereço".
 - A folha verde ao lado do nome virou uma marca de quatro laços abertos.
 
+## Segunda rodada (16/09/2026)
+
+A Ana pediu um site "só pra saberem que eu existo, sem apelação". Eram cinco
+botões de WhatsApp na página; ficaram três, e cada um diz uma coisa diferente:
+o "Agendar" do cabeçalho, que acompanha a rolagem, e os dois dos cards de
+modalidade, que já chegam com a mensagem de presencial ou de online.
+
+- Topo sem botões: saiu o "Conhecer o trabalho", a pedido dela, e com ele o
+  "Agendar pelo WhatsApp", que repetia o "Agendar" do cabeçalho na mesma tela.
+- "Como acontece o atendimento" sem título nem frase de abertura: a seção
+  começa direto na foto do consultório. O título continua para leitor de tela.
+- Atendimento online "para as demais regiões do país e exterior".
+- Chamada final ("Vamos conversar") removida, com o botão dela.
+
 ## Antes de lançar de verdade
 
 O site está publicado como **prévia** e propositalmente fora do Google. Para

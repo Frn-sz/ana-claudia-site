@@ -126,21 +126,6 @@
               Atendimento presencial em Caxias do Sul e online para as demais
               regiões.
             </p>
-
-            <div class="hero__actions">
-              <a
-                class="button button--primary"
-                href="https://wa.me/5554991697043?text=Ol%C3%A1%2C%20Ana.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta."
-              >
-                <svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <use href="#icon-whatsapp" />
-                </svg>
-                Agendar pelo WhatsApp
-              </a>
-              <a class="button button--secondary" href="#sobre"
-                >Conhecer o trabalho</a
-              >
-            </div>
           </div>
 
           <!-- Ilustração, não fotografia: a foto da Ana aparece só no "Sobre".
@@ -334,13 +319,10 @@
       <!-- ========================= ATENDIMENTO ======================== -->
       <section class="section section--tinted" id="atendimento">
         <div class="container">
-          <div class="section__head reveal">
-            <h2>Como acontece o atendimento</h2>
-            <p>
-              Escolha o formato que couber melhor na sua rotina. O cuidado é o
-              mesmo nos dois.
-            </p>
-          </div>
+          <!-- Sem título visível, a pedido da Ana: a seção abre direto nos
+               cards. O h2 continua para quem navega por títulos, senão os
+               dois h3 abaixo ficariam pendurados na seção de orientação. -->
+          <h2 class="visually-hidden">Como acontece o atendimento</h2>
 
           <div class="modes">
             <article class="mode reveal">
@@ -397,8 +379,8 @@
               <div class="mode__body">
                 <h3>Atendimento online</h3>
                 <p>
-                  Por videochamada, para as demais regiões do país, com a mesma
-                  privacidade do consultório.
+                  Por videochamada, para as demais regiões do país e exterior,
+                  com a mesma privacidade do consultório.
                 </p>
                 <a
                   class="button button--primary"
@@ -436,25 +418,6 @@
         </div>
       </section>
 
-      <!-- ========================= CHAMADA FINAL ====================== -->
-      <section class="section closing">
-        <div class="container reveal">
-          <h2>Vamos conversar</h2>
-          <p>
-            O primeiro contato é simples e sem compromisso. Me escreva quando
-            quiser, e conversamos sobre como começar.
-          </p>
-          <a
-            class="button"
-            href="https://wa.me/5554991697043?text=Ol%C3%A1%2C%20Ana.%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta."
-          >
-            <svg class="button__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <use href="#icon-whatsapp" />
-            </svg>
-            Agendar pelo WhatsApp
-          </a>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
@@ -536,7 +499,7 @@
           "longitude": -51.1913129
         },
         "telephone": "+55 54 99169-7043",
-        "areaServed": "Caxias do Sul e atendimento online em todo o Brasil",
+        "areaServed": "Caxias do Sul e atendimento online no Brasil e no exterior",
         "availableService": [
           { "@type": "Service", "name": "Psicoterapia individual" },
           { "@type": "Service", "name": "Orientação profissional e de carreira" }
